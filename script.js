@@ -1,5 +1,5 @@
 // Helper function: writes any HTML into the #out div
-function render (html) {
+function render(html) {
   document.getElementById('out').innerHTML = html
 }
 
@@ -10,8 +10,17 @@ function render (html) {
   - If they type something, display "Hello, NAME!"
   - If they cancel or leave blank, show a friendly message
 */
-function greet () {
+function greet() {
   // TODO: Write your code here
+  const userName = prompt("What is your name?");
+  if (!userName || !userName.trim()) {
+    //check for empty or canceled input
+    render("<p class='text-muted'>No name entered.</p>");
+    return //exit the function early
+  } else {
+    render(`<p>Hello, ${userName}!</p>`);
+
+  }
 }
 
 /* 
@@ -22,8 +31,16 @@ function greet () {
   - Calculate the average
   - Display the average AND the list of numbers
 */
-function averageNumbers () {
+function averageNumbers() {
   // TODO: Write your code here
+  const nums = prompt('Enter a list of numbers separated by commas');
+
+  if (!nums) {
+    render("<p class='text-muted'>No numbers entered.</p>");
+    return;
+  }
+  const numArray = nums.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));//remove invalid numbers
+  
 }
 
 /* 
@@ -33,7 +50,7 @@ function averageNumbers () {
   - Decide whether it's morning, afternoon, or evening
   - Display a message like "Good morning!" 
 */
-function timeOfDay () {
+function timeOfDay() {
   // TODO: Write your code here
 }
 
@@ -45,7 +62,7 @@ function timeOfDay () {
   - Display the result
   - Handle invalid input (like blanks or min >= max)
 */
-function randomBetween () {
+function randomBetween() {
   // TODO: Write your code here
 }
 
@@ -55,7 +72,7 @@ function randomBetween () {
   - Clear whatever is inside #out
   - Replace it with a placeholder message like "Output cleared."
 */
-function clearOutput () {
+function clearOutput() {
   // TODO: Write your code here
 }
 
