@@ -40,7 +40,10 @@ function averageNumbers() {
     return;
   }
   const numArray = nums.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));//remove invalid numbers
+
+  const sum = numArray.reduce((a, b) => a + b, 0);
   
+const average = sum / numArray.length;
 }
 
 /* 
